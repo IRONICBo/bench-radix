@@ -11,3 +11,14 @@ criterion = "0.5.1"
 radix_trie = "0.2.1"
 # #![feature]` may not be used on the stable release channel
 # rax = "0.1.5"
+
+[dev-dependencies]
+criterion = "0.5.1"
+
+#[[bench]]
+#name = "radix_trie_benches"
+#harness = false
+
+[[bench]]
+name = "congee_benches"
+harness = false

@@ -11,7 +11,8 @@ fn get_text() -> Vec<String> {
         .read_to_string(&mut contents)
         .unwrap();
     contents
-        .split(|c: char| c.is_whitespace())
+        // .split(|c: char| c.is_whitespace())
+        .lines()
         .map(|s| s.to_string())
         .collect()
 }
@@ -19,6 +20,7 @@ fn get_text() -> Vec<String> {
 fn make_trie(words: &[String]) -> Trie<&str, usize> {
     let mut trie = Trie::new();
     for w in words {
+        // mock prompt, mock blockid
         trie.insert(&w[..], w.len());
     }
     trie
@@ -26,6 +28,7 @@ fn make_trie(words: &[String]) -> Trie<&str, usize> {
 
 fn trie_insert(b: &mut Criterion) {
     let words = get_text();
+    println!("words size: {:?}", words.len());
     b.bench_function("trie insert", |b| b.iter(|| make_trie(&words)));
 }
 

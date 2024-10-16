@@ -26,9 +26,37 @@ Construct a 3000 string as a prompt in radix tree and then blockid i.e. 0-2999, 
 - 100 concurrent reads of 10 pieces of data by 100 concurrent programs
 - 100 concurrent writes of 10 pieces of data by 100 concurrent programs
 
+## Bench
+
+1. Radix Trie
+
+```bash
+words size: 3100
+trie insert             time:   [5.4861 ms 5.6228 ms 5.7743 ms]
+Found 17 outliers among 100 measurements (17.00%)
+  2 (2.00%) high mild
+  15 (15.00%) high severe
+
+trie get                time:   [4.4201 ms 4.4354 ms 4.4564 ms]
+Found 5 outliers among 100 measurements (5.00%)
+  3 (3.00%) high mild
+  2 (2.00%) high severe
+
+trie remove             time:   [9.6145 ms 9.6707 ms 9.7462 ms]
+Found 5 outliers among 100 measurements (5.00%)
+  1 (1.00%) high mild
+  4 (4.00%) high severe
+```
+
+2. Congee
+
+```bash
+```
+
 ## References libs
 
 - https://crates.io/crates/rax
 - https://github.com/michaelsproul/rust_radix_trie
 - https://github.com/XiangpengHao/congee
+
 
